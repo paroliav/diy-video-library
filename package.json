@@ -22,7 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "netlify dev"
+    "dev": "netlify dev",
+    "lint": "eslint src/**/*.{js,jsx}"
   },
   "eslintConfig": {
     "extends": [

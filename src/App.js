@@ -46,10 +46,8 @@ const App = () => {
         return acc;
       }, {});
       setCategories(categorizedVideos);
-      setLoading(false);
     } catch (error) {
       console.error('Error fetching videos:', error);
-      setLoading(false);
     }
   };
 
