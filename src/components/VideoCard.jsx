@@ -26,6 +26,7 @@ const VideoCard = ({ video, onClick }) => {
       {thumbnail.includes('facebook.com') ? (
         <iframe
           src={thumbnail}
+          title={`Video: ${videoTitle}`}
           className="w-full h-full object-cover"
           style={{ border: 'none', overflow: 'hidden' }}
           width="200"

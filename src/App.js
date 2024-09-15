@@ -26,7 +26,6 @@ const App = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [categories, setCategories] = useState({});
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchVideos();
