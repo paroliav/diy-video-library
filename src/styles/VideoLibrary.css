@@ -1,0 +1,21 @@
+.video-library {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .category-section {
+    margin-left: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .video-row {
+    display: flex;
+    overflow-x: scroll;
+    gap: 15px;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  
