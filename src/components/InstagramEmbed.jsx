@@ -39,14 +39,14 @@ const InstagramEmbed = ({ url }) => {
     return <div>Loading Instagram content...</div>;
   }
 
-  const shortcode = url.split('/').filter(Boolean).pop().split('?')[0];
+  const shortcode = url.split('reel/')[1].split('?')[0];
 
   return (
     <div>
       <blockquote
         className="instagram-media"
         data-instgrm-captioned
-        data-instgrm-permalink={`https://www.instagram.com/p/${shortcode}/`}
+        data-instgrm-permalink={`https://www.instagram.com/reel/${shortcode}`}
         data-instgrm-version="14"
         style={{
           background: '#FFF',
@@ -62,7 +62,7 @@ const InstagramEmbed = ({ url }) => {
       >
         <div style={{ padding: '16px' }}>
           <a
-            href={`https://www.instagram.com/p/${shortcode}/`}
+            href={`https://www.instagram.com/reel/${shortcode}`}
             style={{
               background: '#FFFFFF',
               lineHeight: 0,
