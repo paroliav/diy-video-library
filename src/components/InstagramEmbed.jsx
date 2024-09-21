@@ -71,11 +71,9 @@ const InstagramEmbed = ({ url }) => {
               textDecoration: 'none',
               width: '100%',
             }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View this post on Instagram
-          </a>
+            // target="_blank"
+            // rel="noopener noreferrer"
+          ></a>
         </div>
       </blockquote>
     </div>
