@@ -15,6 +15,10 @@ const VideoPlayer = ({ video, onClose }) => {
     if (url.includes('facebook.com')) {
       return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&t=0&width=800&height=400`;
     }
+    if (url.includes('instagram.com')) {
+      const postId = url.split('/p/')[1].split('/')[0];
+      return `https://www.instagram.com/p/${postId}/embed`;
+    }
     return url;
   };
 
@@ -23,8 +27,8 @@ const VideoPlayer = ({ video, onClose }) => {
   return (
     <div className="video-player-overlay">
       <div className="video-container">
-        <button 
-          onClick={onClose} 
+        <button
+          onClick={onClose}
           className="close-button"
           aria-label="Close video"
         >

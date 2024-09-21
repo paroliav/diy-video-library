@@ -1,6 +1,5 @@
 import React from 'react';
 import { Star } from 'lucide-react';
-
 import '../styles/VideoCard.css';
 
 const VideoCard = ({ video, onClick }) => {
@@ -15,6 +14,10 @@ const VideoCard = ({ video, onClick }) => {
     }
     if (url.includes('facebook.com')) {
       return `https://www.facebook.com/plugins/video.php?href=${url}&show_text=false&appId`;
+    }
+    if (url.includes('instagram.com')) {
+      const postId = url.split('/p/')[1].split('/')[0];
+      return `https://www.instagram.com/p/${postId}/media/?size=t`;
     }
     return '/api/placeholder/300/200';
   };
@@ -36,8 +39,8 @@ const VideoCard = ({ video, onClick }) => {
       ) : (
         <img src={thumbnail} alt={video.title} className="w-full h-full object-cover" width="200" height="300" />
       )}
-      <div class="video-info">
-        <p class="video-title">{video.title}</p>
+      <div className="video-info">
+        <p className="video-title">{video.title}</p>
         <div className="flex">
           {[...Array(5)].map((_, i) => (
             <Star
