@@ -38,7 +38,8 @@ const VideoCard = ({ video, onClick }) => {
           height="300"
           allowFullScreen={true}
         />
-      ) : thumbnail.includes('instagram.com') ? <InstagramEmbed width={350} height={600} /> : (
+      ) : thumbnail.includes('instagram.com') ? <blockquote class="instagram-media" data-instgrm-permalink={thumbnail} data-instgrm-version="12">
+</blockquote> : (
         <img src={thumbnail} alt={video.title} className="w-full h-full object-cover" width="200" height="300" />
       )}
       <div className="video-info">
