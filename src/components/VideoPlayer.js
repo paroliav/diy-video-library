@@ -25,7 +25,7 @@ const VideoPlayer = ({ video, onClose }) => {
 
   const renderEmbed = () => {
     const url = video.link;
-    const width = Math.min(450, window.innerWidth * 0.9);
+    const width = Math.min(400, window.innerWidth * 0.9);
     const height = Math.min(450, maxHeight - 60); // 60px for padding and close button
 
     const commonProps = {
