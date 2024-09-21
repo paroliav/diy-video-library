@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, AlertCircle } from 'lucide-react';
 import '../styles/VideoPlayer.css';
 import { 
@@ -12,34 +12,53 @@ import {
 } from 'react-social-media-embed';
 
 const VideoPlayer = ({ video, onClose }) => {
+  const [maxHeight, setMaxHeight] = useState(window.innerHeight * 0.9);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setMaxHeight(window.innerHeight * 0.9);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const renderEmbed = () => {
     const url = video.link;
+    const width = Math.min(800, window.innerWidth * 0.9);
+    const height = Math.min(450, maxHeight - 60); // 60px for padding and close button
+
+    const commonProps = {
+      url,
+      width,
+      style: { maxHeight: height, overflow: 'auto' }
+    };
     
     if (url.includes('youtube.com') || url.includes('youtu.be')) {
-      return <YouTubeEmbed url={url} width={800} height={450} />;
+      return <YouTubeEmbed {...commonProps} height={height} />;
     }
     if (url.includes('facebook.com')) {
-      return <FacebookEmbed url={url} width={800} height={600}/>;
+      return <FacebookEmbed {...commonProps} />;
     }
     if (url.includes('instagram.com')) {
-      return <InstagramEmbed url={url} width={800} height={600}/>;
+      return <InstagramEmbed {...commonProps} />;
     }
     if (url.includes('linkedin.com')) {
-      return <LinkedInEmbed url={url} width={800} height={570} />;
+      return <LinkedInEmbed {...commonProps} height={height} />;
     }
     if (url.includes('pinterest.com')) {
-      return <PinterestEmbed url={url} width={800} height={600} />;
+      return <PinterestEmbed {...commonProps} height={height} />;
     }
     if (url.includes('tiktok.com')) {
-      return <TikTokEmbed url={url} width={800} height={600}/>;
+      return <TikTokEmbed {...commonProps} />;
     }
     if (url.includes('twitter.com') || url.includes('x.com')) {
-      return <XEmbed url={url} width={800} height={600}/>;
+      return <XEmbed {...commonProps} />;
     }
     
     // Fallback for unsupported platforms
     return (
-      <div className="fallback-container">
+      <div className="fallback-container" style={{ maxHeight: height, overflow: 'auto' }}>
         <div className="fallback-content">
           <AlertCircle size={48} className="fallback-icon" />
           <p>This video cannot be embedded.</p>
@@ -53,7 +72,7 @@ const VideoPlayer = ({ video, onClose }) => {
 
   return (
     <div className="video-player-overlay">
-      <div className="video-container">
+      <div className="video-container" style={{ maxHeight }}>
         <button
           onClick={onClose}
           className="close-button"
