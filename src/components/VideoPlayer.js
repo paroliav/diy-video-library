@@ -31,7 +31,7 @@ const VideoPlayer = ({ video, onClose }) => {
     const commonProps = {
       url,
       // width,
-      style: { maxHeight: height, overflow: 'auto' }
+      style: { maxHeight: maxHeight - 20, overflow: 'auto' }
     };
     
     if (url.includes('youtube.com') || url.includes('youtu.be')) {
