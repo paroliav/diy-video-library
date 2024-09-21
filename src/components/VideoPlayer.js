@@ -25,13 +25,13 @@ const VideoPlayer = ({ video, onClose }) => {
 
   const renderEmbed = () => {
     const url = video.link;
-    const width = Math.min(500, window.innerWidth * 0.9);
+    const width = Math.min(450, window.innerWidth * 0.9);
     const height = Math.min(450, maxHeight - 60); // 60px for padding and close button
 
     const commonProps = {
       url,
       width,
-      style: { maxHeight: maxHeight - 20, overflow: 'auto' }
+      style: { maxHeight: maxHeight - 10, overflow: 'auto' }
     };
     
     if (url.includes('youtube.com') || url.includes('youtu.be')) {
