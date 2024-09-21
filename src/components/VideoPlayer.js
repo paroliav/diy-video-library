@@ -25,12 +25,12 @@ const VideoPlayer = ({ video, onClose }) => {
 
   const renderEmbed = () => {
     const url = video.link;
-    const width = Math.min(800, window.innerWidth * 0.9);
+    const width = Math.min(500, window.innerWidth * 0.9);
     const height = Math.min(450, maxHeight - 60); // 60px for padding and close button
 
     const commonProps = {
       url,
-      // width,
+      width,
       style: { maxHeight: maxHeight - 20, overflow: 'auto' }
     };
     
