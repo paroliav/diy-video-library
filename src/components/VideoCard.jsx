@@ -1,12 +1,9 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 import '../styles/VideoCard.css';
-import { 
-  InstagramEmbed
-} from 'react-social-media-embed';
 
 const VideoCard = ({ video, onClick }) => {
-  const getVideoThumbnail = (url) => {
+  const getVideoThumbnail = (url, thumbnail) => {
     if (url.includes('youtube.com') || url.includes('youtu.be')) {
       const videoId = url.split('v=')[1] || url.split('/').pop();
       return `https://img.youtube.com/vi/${videoId}/0.jpg`;
@@ -19,12 +16,12 @@ const VideoCard = ({ video, onClick }) => {
       return `https://www.facebook.com/plugins/video.php?href=${url}&show_text=false&appId`;
     }
     if (url.includes('instagram.com')) {
-      return url;
+      return thumbnail;
     }
     return 'https://placehold.co/300x600';
   };
 
-  const thumbnail = getVideoThumbnail(video.link);
+  const thumbnail = getVideoThumbnail(video.link, video.thumbnail);
 
   return (
     <div className="relative overflow-hidden rounded-lg shadow-lg" onClick={onClick}>
@@ -38,8 +35,7 @@ const VideoCard = ({ video, onClick }) => {
           height="300"
           allowFullScreen={true}
         />
-      ) : thumbnail.includes('instagram.com') ? <blockquote class="instagram-media" data-instgrm-permalink={thumbnail} data-instgrm-version="12">
-</blockquote> : (
+      ) : (
         <img src={thumbnail} alt={video.title} className="w-full h-full object-cover" width="200" height="300" />
       )}
       <div className="video-info">
