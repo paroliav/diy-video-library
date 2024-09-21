@@ -19,10 +19,10 @@ const VideoPlayer = ({ video, onClose }) => {
       return <YouTubeEmbed url={url} width={800} height={450} />;
     }
     if (url.includes('facebook.com')) {
-      return <FacebookEmbed url={url} width={800} />;
+      return <FacebookEmbed url={url} width={800} height={600}/>;
     }
     if (url.includes('instagram.com')) {
-      return <InstagramEmbed url={url} width={800} />;
+      return <InstagramEmbed url={url} width={800} height={600}/>;
     }
     if (url.includes('linkedin.com')) {
       return <LinkedInEmbed url={url} width={800} height={570} />;
@@ -31,10 +31,10 @@ const VideoPlayer = ({ video, onClose }) => {
       return <PinterestEmbed url={url} width={800} height={600} />;
     }
     if (url.includes('tiktok.com')) {
-      return <TikTokEmbed url={url} width={800} />;
+      return <TikTokEmbed url={url} width={800} height={600}/>;
     }
     if (url.includes('twitter.com') || url.includes('x.com')) {
-      return <XEmbed url={url} width={800} />;
+      return <XEmbed url={url} width={800} height={600}/>;
     }
     
     // Fallback for unsupported platforms
