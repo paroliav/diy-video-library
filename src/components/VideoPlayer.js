@@ -30,7 +30,7 @@ const VideoPlayer = ({ video, onClose }) => {
 
     const commonProps = {
       url,
-      width,
+      // width,
       style: { maxHeight: height, overflow: 'auto' }
     };
     
