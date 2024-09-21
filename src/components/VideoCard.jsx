@@ -1,6 +1,9 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 import '../styles/VideoCard.css';
+import { 
+  InstagramEmbed
+} from 'react-social-media-embed';
 
 const VideoCard = ({ video, onClick }) => {
   const getVideoThumbnail = (url) => {
@@ -16,7 +19,7 @@ const VideoCard = ({ video, onClick }) => {
       return `https://www.facebook.com/plugins/video.php?href=${url}&show_text=false&appId`;
     }
     if (url.includes('instagram.com')) {
-      return 'https://placehold.co/300x600';
+      return url;
     }
     return 'https://placehold.co/300x600';
   };
@@ -35,7 +38,7 @@ const VideoCard = ({ video, onClick }) => {
           height="300"
           allowFullScreen={true}
         />
-      ) : (
+      ) : thumbnail.includes('instagram.com') ? <InstagramEmbed width={350} height={600} /> : (
         <img src={thumbnail} alt={video.title} className="w-full h-full object-cover" width="200" height="300" />
       )}
       <div className="video-info">
