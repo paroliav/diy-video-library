@@ -67,7 +67,7 @@ const AddEditVideo = ({ videos, onSave }) => {
       <input name="category" value={formData.category} onChange={handleChange} placeholder="Category" required />
       <input name="link" value={formData.link} onChange={handleChange} placeholder="Video Link" />
       <input name="rating" type="number" min="0" max="5" value={formData.rating || ''} onChange={handleChange} placeholder="Rating" />
-      <input name="thumbnail" value={formData.link} onChange={handleChange} placeholder="Thumbnail Link" />
+      <input name="thumbnail" value={formData.thumbnail} onChange={handleChange} placeholder="Thumbnail Link" />
       <button type="submit">Save</button>
       {error && <div style={{color: 'red'}}>{error}</div>}
     </form>
