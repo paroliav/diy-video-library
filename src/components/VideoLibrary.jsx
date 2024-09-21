@@ -8,7 +8,7 @@ const VideoLibrary = ({ categories, onVideoClick }) => {
         {Object.keys(categories).map((category) => (
           <div key={category} className="category-section">
             <h2>{category}</h2>
-            <div className="video-row" style="overflow-x: auto;">
+            <div className="video-row" style={{'overflow-x': auto}}>
               {categories[category].map((video) => (
                 <VideoCard 
                   key={video.id} 
