@@ -16,8 +16,8 @@ const VideoPlayer = ({ video, onClose }) => {
       return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&t=0&width=800&height=400`;
     }
     if (url.includes('instagram.com')) {
-      const postId = url.split('/p/')[1].split('/')[0];
-      return `https://www.instagram.com/p/${postId}/embed`;
+      const shortcode = url.split('/').filter(Boolean).pop().split('?')[0];
+      return `https://www.instagram.com/p/${shortcode}/embed`;
     }
     return url;
   };

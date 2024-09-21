@@ -16,8 +16,8 @@ const VideoCard = ({ video, onClick }) => {
       return `https://www.facebook.com/plugins/video.php?href=${url}&show_text=false&appId`;
     }
     if (url.includes('instagram.com')) {
-      const postId = url.split('/p/')[1].split('/')[0];
-      return `https://www.instagram.com/p/${postId}/media/?size=t`;
+      const shortcode = url.split('/').filter(Boolean).pop().split('?')[0];
+      return `https://www.instagram.com/p/${shortcode}/media/?size=t`;
     }
     return '/api/placeholder/300/200';
   };
