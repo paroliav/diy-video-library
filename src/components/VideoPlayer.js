@@ -1,7 +1,7 @@
 import React from 'react';
 import { X, AlertCircle } from 'lucide-react';
 import '../styles/VideoPlayer.css';
-<script async src="//www.instagram.com/embed.js"></script>
+import InstagramEmbed from './InstagramEmbed';
 
 const VideoPlayer = ({ video, onClose }) => {
   const getEmbedUrl = (url) => {
@@ -15,14 +15,6 @@ const VideoPlayer = ({ video, onClose }) => {
     }
     if (url.includes('facebook.com')) {
       return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&t=0&width=800&height=400`;
-    }
-    if (url.includes('instagram.com')) {
-      const shortcode = url.split('reel/')[1].split('?')[0];
-      return `
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/${shortcode}/" data-instgrm-version="14">
-          <a href="https://www.instagram.com/p/${shortcode}/" target="_blank">View this post on Instagram</a>
-        </blockquote>
-      `;
     }
     return url;
   };
@@ -39,7 +31,9 @@ const VideoPlayer = ({ video, onClose }) => {
         >
           <X size={24} />
         </button>
-        {embedUrl ? (
+        {video.link.includes('instagram.com') ? (
+          <InstagramEmbed url={video.link} />
+        ) : embedUrl ? (
           <iframe
             src={embedUrl}
             title={video.title}
