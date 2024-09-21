@@ -17,7 +17,7 @@ const VideoCard = ({ video, onClick }) => {
     }
     if (url.includes('instagram.com')) {
       const shortcode = url.split('reel/')[1].split('?')[0];
-      return `https://www.instagram.com/p/${shortcode}/media/?size=t`;
+      return `https://www.instagram.com/p/${shortcode}media/?size=t`;
     }
     return '/api/placeholder/300/200';
   };
