@@ -78,6 +78,7 @@ exports.handler = async function(event, context) {
       category: data.category || '',
       link: data.link || null,
       rating: data.rating ? parseInt(data.rating) : null,
+      thumbnail: data.thumbnail || null  // Added thumbnail field
     };
 
     let result;

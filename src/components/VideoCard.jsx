@@ -25,7 +25,8 @@ const VideoCard = ({ video, onClick }) => {
 
   return (
     <div className="relative overflow-hidden rounded-lg shadow-lg" onClick={onClick}>
-      {thumbnail.includes('facebook.com') ? (
+      {
+      thumbnail.includes('facebook.com') ? (
         <iframe
           src={thumbnail}
           title={`Video: ${thumbnail}`}
@@ -37,7 +38,8 @@ const VideoCard = ({ video, onClick }) => {
         />
       ) : (
         <img src={thumbnail} alt={video.title} className="w-full h-full object-cover" width="200" height="300" />
-      )}
+      )
+      }
       <div className="video-info">
         <p className="video-title">{video.title}</p>
         <div className="flex">
